@@ -163,37 +163,6 @@ export const LoginModal = ({ open, onClose }) => {
 
                   {/* Form */}
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    {/* User Type Select */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
-                    >
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Tipo de Usuario
-                      </label>
-                      <div className="relative">
-                        <Building className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                        <select
-                          {...register('userType', { required: 'Selecciona un tipo de usuario' })}
-                          className="w-full pl-12 pr-4 py-4 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500 transition-all duration-300 text-gray-700 font-medium shadow-sm"
-                        >
-                          <option value="">Seleccionar tipo...</option>
-                          <option value="admin">Administrador</option>
-                          <option value="coordinator">Coordinador SST</option>
-                          <option value="employee">Empleado</option>
-                        </select>
-                      </div>
-                      {errors.userType && (
-                        <motion.p 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="text-red-500 text-sm mt-2 ml-1"
-                        >
-                          {errors.userType.message}
-                        </motion.p>
-                      )}
-                    </motion.div>
 
                     {/* Username Input */}
                     <motion.div
