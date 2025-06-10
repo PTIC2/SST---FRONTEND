@@ -10,7 +10,7 @@ export const LoginModal = ({ open, onClose }) => {
   const modalVariants = {
     hidden: { 
       opacity: 0,
-      scale: 0.8,
+      scale: 0.95,
       x: 100,
       y: -50
     },
@@ -20,18 +20,16 @@ export const LoginModal = ({ open, onClose }) => {
       x: 0,
       y: 0,
       transition: {
-        type: "spring",
-        duration: 0.6,
-        bounce: 0.3
+        type: "tween",
+        ease: "easeOut",
+        duration: 0.2,
       }
     },
     exit: {
       opacity: 0,
-      scale: 0.8,
-      x: 100,
-      y: -50,
+      scale: 0.95,
       transition: {
-        duration: 0.3
+        duration: 0.2
       }
     }
   };
@@ -43,8 +41,6 @@ export const LoginModal = ({ open, onClose }) => {
   };
 
   return (
-    <AnimatePresence>
-      {open && (
         <Modal open={open} onClose={onClose}
           closeAfterTransition
           sx={{
@@ -71,7 +67,5 @@ export const LoginModal = ({ open, onClose }) => {
             </Box>
           </motion.div>
         </Modal>
-      )}
-    </AnimatePresence>
   );
 };

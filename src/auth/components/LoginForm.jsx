@@ -1,6 +1,6 @@
 import Logo from '../../app/assets/imgs/LOGO_NS_SINFONDO.png';
 import { motion } from "framer-motion"
-import { Eye, EyeOff, Lock, Shield, User, X } from "lucide-react"
+import { Eye, EyeOff, Lock, User, X } from "lucide-react"
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
