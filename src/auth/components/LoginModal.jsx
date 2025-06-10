@@ -304,24 +304,6 @@ export const LoginModal = ({ open, onClose }) => {
                       </motion.button>
                     </motion.div>
 
-                    {/* Footer */}
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.5 }}
-                      className="text-center pt-4"
-                    >
-                      <p className="text-sm text-gray-600">
-                        ¿Olvidaste tu contraseña?{' '}
-                        <motion.button
-                          type="button"
-                          className="text-cyan-600 hover:text-cyan-700 font-semibold"
-                          whileHover={{ scale: 1.05 }}
-                        >
-                          Recuperar
-                        </motion.button>
-                      </p>
-                    </motion.div>
                   </form>
                 </div>
               </motion.div>
