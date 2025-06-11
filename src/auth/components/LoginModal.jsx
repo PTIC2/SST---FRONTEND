@@ -1,9 +1,6 @@
 import { Modal, Box } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { Lock, User, Eye, EyeOff, X, Shield } from 'lucide-react';
-import { useState } from 'react';
-import { LoginForm } from './LoginForm';
+import { motion } from 'framer-motion';
+import { LoginForm } from '../pages/LoginForm';
 
 export const LoginModal = ({ open, onClose }) => {
 
@@ -41,17 +38,14 @@ export const LoginModal = ({ open, onClose }) => {
   };
 
   return (
-        <Modal open={open} onClose={onClose}
-          closeAfterTransition
-          sx={{
+        <Modal open={open} onClose={onClose} closeAfterTransition sx={{
             '& .MuiBackdrop-root': {
               backgroundColor: 'rgba(0, 0, 0, 0.3)',
               backdropFilter: 'blur(8px)'
             }
           }}
         >
-          <motion.div variants={backdropVariants}
-            initial="hidden" animate="visible"
+          <motion.div variants={backdropVariants} initial="hidden" animate="visible"
             exit="exit" style={{ width: '100%', height: '100%' }}
           >
             <Box sx={{ 

@@ -1,38 +1,31 @@
 import Logo from '../../app/assets/imgs/LOGO_NS_SINFONDO.png';
 import { motion } from "framer-motion"
 import { Eye, EyeOff, Lock, User, X } from "lucide-react"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { router } from '../../app/config/config';
+
+const fieldVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 }
+};
 
 export const LoginForm = ({ onClose }) => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm({
-    defaultValues: {
-      username: '',
-      password: ''
-    }
-  });
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm();
 
-  const onSubmit = async (data) => {
-    console.log('Form data:', data);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    alert(`Login: ${data.username}`);
-    reset();
-    onClose();
-  };
+  const { login, isAuth } = useAuth();
+  const onSubmited = handleSubmit(async (userData) => await login(userData.username, userData.password))
 
-  const fieldVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 }
-  };
+  useEffect(() => {
+    if(isAuth) navigate(router.staff)
+  }, [isAuth, navigate])
 
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="relative"
-    >
+    <motion.div initial="initial" animate="animate" exit="exit" className="relative">
       {/* Fondo simplificado */}
       <div className="absolute inset-0 bg-white/90 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20" />
 
@@ -44,7 +37,6 @@ export const LoginForm = ({ onClose }) => {
             <img src={Logo} className='w-12 h-12 rounded-xl' />
             <div>
               <h2 className="text-2xl font-bold text-gray-900">Iniciar Sesión</h2>
-              <p className="text-sm text-gray-600">Accede a tu cuenta SST</p>
             </div>
           </div>
           <button
@@ -56,7 +48,7 @@ export const LoginForm = ({ onClose }) => {
         </div>
 
         {/* Formulario */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={onSubmited} className="space-y-6">
           {/* Usuario */}
           <motion.div variants={fieldVariants} transition={{ delay: 0.1 }}>
             <label className="block text-sm font-semibold text-gray-700 mb-2">Usuario</label>

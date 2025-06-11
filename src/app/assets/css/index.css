@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* Para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 3px;
+  background: transparent; /* Fondo del track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* El "pulgarcito" (thumb) */
+  border-radius: 4px;
+}
