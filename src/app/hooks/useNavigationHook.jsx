@@ -33,7 +33,7 @@ export const useNavigationHook = (path = '/') => {
         path : router.safety
     },
     {  
-        label: 'Higiene y Accidentes', 
+        label: 'Higiene Ocupacional', 
         icon: BarChart3, 
         color: 'from-teal-500 to-cyan-500',
         isActive : router.hygiene === path,

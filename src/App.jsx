@@ -7,6 +7,9 @@ import { HomePage } from './app/pages/HomePage';
 import { AuthProvider } from './auth/context/AuthContext';
 import { StaffManager } from './staff/pages/StaffManager';
 import { SurveillancePage } from './surveillance/pages/SurveillancePage';
+import { PpePage } from './ppe/pages/PpePage';
+import { SafetyPage } from './safety/pages/SafetyPage';
+import { HygienePage } from './hygiene/pages/HygienePage';
 
 export const App = () => {
   return (
@@ -27,6 +30,9 @@ export const App = () => {
           <Route path={router.home} element={<HomePage />} />
           <Route path={router.staff} element={<StaffManager />} />
           <Route path={router.surveillance} element={<SurveillancePage />} />
+          <Route path={router.ppe} element={<PpePage /> } />
+          <Route path={router.safety} element={<SafetyPage /> } />
+          <Route path={router.hygiene} element={<HygienePage /> } />
 
         </Routes>
       </Router>  
