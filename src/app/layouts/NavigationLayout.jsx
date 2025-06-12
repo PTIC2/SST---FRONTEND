@@ -27,7 +27,6 @@ export const NavigationLayout = ({ children, title = '' }) => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Close sidebar on mobile when clicking outside
   useEffect(() => {
     if (!isMobile) return;
     
@@ -41,7 +40,6 @@ export const NavigationLayout = ({ children, title = '' }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isMobile, sidebarOpen]);
 
-  // Close user menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userMenuOpen && !event.target.closest('.user-menu')) {
@@ -68,8 +66,7 @@ export const NavigationLayout = ({ children, title = '' }) => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 relative">
       {/* Background Effects - Optimized for mobile */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 lg:opacity-20"
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 lg:opacity-20"
           style={{ backgroundImage: `url('/DashboardBackground.webp')` }}
         />
         
@@ -177,7 +174,7 @@ export const NavigationLayout = ({ children, title = '' }) => {
                 <Link 
                   to={item.path} 
                   key={key} 
-                  className={`group w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-300 relative overflow-hidden ${
+                  className={`group w-full flex items-center space-x-1 px-4 py-3 rounded-xl transition-all duration-300 relative overflow-hidden ${
                     item.isActive 
                       ? 'bg-gradient-to-r ' + item.color + ' text-white shadow-lg' 
                       : 'text-gray-600 hover:bg-gray-100/60 hover:text-gray-900'
@@ -281,8 +278,7 @@ export const NavigationLayout = ({ children, title = '' }) => {
               {/* Right Side */}
               <div className="flex items-center space-x-3 flex-shrink-0">
                 {/* Notifications */}
-                <motion.button
-                  className="p-2 rounded-xl bg-gray-100/50 hover:bg-gray-200/50 transition-colors duration-200 relative"
+                <motion.button className="p-2 rounded-xl bg-gray-100/50 hover:bg-gray-200/50 transition-colors duration-200 relative"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -291,14 +287,14 @@ export const NavigationLayout = ({ children, title = '' }) => {
                 </motion.button>
 
                 {/* User Menu */}
-                <div className="relative user-menu">
+                <div className="relative user-menu ">
                   <motion.button
                     onClick={() => setUserMenuOpen(!userMenuOpen)}
                     className="flex items-center space-x-2 p-2 rounded-xl bg-gray-100/50 hover:bg-gray-200/50 transition-colors duration-200"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-cyan-500 rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-br from-green-300 to-green-400 rounded-lg flex items-center justify-center">
                       <User className="w-4 h-4 text-white" />
                     </div>
                     <ChevronDown className="w-4 h-4 text-gray-600 hidden sm:block" />
@@ -306,11 +302,9 @@ export const NavigationLayout = ({ children, title = '' }) => {
 
                   <AnimatePresence>
                     {userMenuOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        className="absolute right-0 mt-2 w-48 bg-white/90 backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 py-2 z-50"
+                      <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        className="absolute right-0 mt-5 w-48 bg-white backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 py-2 z-[999]"
                       >
                         <div className="px-4 py-2 border-b border-gray-100/50">
                           <p className="font-medium text-gray-900 text-sm truncate">Test User</p>
