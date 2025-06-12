@@ -217,25 +217,25 @@ export const HomePage = () => {
                 animate="animate"
               >
                 <div className="flex items-center space-x-4 mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Activity className="w-7 h-7 text-white" />
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center">
+                    <img src={Logo} alt="logo ns" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-lg">Monitoreo Activo</h3>
-                    <p className="text-sm text-gray-600">En tiempo real</p>
+                    <h3 className="font-bold text-gray-900 text-lg">SST Inteligente</h3>
+                    <p className="text-sm text-gray-600">Seguridad y Salud en el Trabajo</p>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600 font-medium">Cumplimiento</span>
-                    <span className="text-lg font-bold text-green-600">98.5%</span>
+                    <span className="text-lg font-bold text-green-600">100%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-3 shadow-inner">
                     <motion.div
                       className="bg-gradient-to-r from-green-400 to-green-500 h-3 rounded-full shadow-sm"
                       initial={{ width: 0 }}
-                      animate={{ width: '98.5%' }}
+                      animate={{ width: '100%' }}
                       transition={{ duration: 2, delay: 1 }}
                     />
                   </div>

@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const logout = async () => {
-        toast.success('¡Nos vemos! Tu sesión se cerró con éxito.', {
+        toast.success('¡Nos vemos!', {
             icon : <LogOut className='text-green-600 w-5 h-5' />,
             position: "top-left",
             autoClose: 5000,
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
         setTimeout(() => {
             window.location.href = '/'
-        }, 2000) 
+        }, 1500) 
     }
 
     return (
