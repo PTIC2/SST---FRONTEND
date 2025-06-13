@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavigationLayout } from '../../app/layouts/NavigationLayout';
 import { UserPlus, Stethoscope, Sparkles } from 'lucide-react';
+import { router } from '../../app/config/config';
 
 const modules = [
   {
@@ -11,6 +12,7 @@ const modules = [
     gradient: 'from-cyan-400 via-blue-500 to-indigo-600',
     bgGradient: 'from-cyan-50 to-blue-50',
     shadowColor: 'shadow-cyan-500/20',
+    to: router.staffSearch,
   },
   {
     title: 'Seguimiento y Exámenes Médicos',
@@ -25,6 +27,8 @@ const modules = [
 
 export const StaffManager = () => {
   const [hoveredModule, setHoveredModule] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
     <NavigationLayout title="Gestión De Personal">
@@ -48,13 +52,7 @@ export const StaffManager = () => {
           {/* Enhanced Modules Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
             {modules.map((module, index) => (
-              <Link
-                key={index}
-                to={module.to}
-                className="group relative"
-                onMouseEnter={() => setHoveredModule(index)}
-                onMouseLeave={() => setHoveredModule(null)}
-              >
+              <Link key={index} to={module.to} className="group relative" onMouseEnter={() => setHoveredModule(index)} onMouseLeave={() => setHoveredModule(null)}>
                 <div className={`
                   relative p-8 bg-gradient-to-br ${module.bgGradient} 
                   border border-white/50 backdrop-blur-xl rounded-3xl 

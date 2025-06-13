@@ -4,7 +4,8 @@ export const router = {
     surveillance : '/vigilancia',
     ppe : '/epp',
     safety : '/seguridad',
-    hygiene : '/higiene'
+    hygiene : '/higiene',
+    staffSearch: '/personal/ingreso-personal'
 }
 
 export const SERVER_URL = '';
