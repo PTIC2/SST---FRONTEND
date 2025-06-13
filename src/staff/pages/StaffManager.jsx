@@ -28,14 +28,7 @@ export const StaffManager = () => {
 
   return (
     <NavigationLayout title="Gestión De Personal">
-      <div className="relative">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-blue-400/10 to-indigo-600/10 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-br from-cyan-400/10 to-blue-600/10 blur-3xl" />
-        </div>
-
-        <div className="relative space-y-16 pb-20">
+        <div className="space-y-16 pb-20">
           {/* Enhanced Header */}
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-sm border border-blue-200/50 rounded-full text-sm text-blue-700 font-medium">
@@ -128,7 +121,6 @@ export const StaffManager = () => {
           </div>
 
         </div>
-      </div>
     </NavigationLayout>
   );
 }
